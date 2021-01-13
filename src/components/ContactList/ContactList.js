@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "./ContactList.module.css";
+import ContactUl from "./ContactListStyled";
 
 function ContactList({ contacts, onDeleteContact }) {
   return (
-    <ul className={styles.contactList}>
+    <ContactUl>
       {contacts.map(({ id, name, number }) => (
-        <li className={styles.contactList__item} key={id}>
+        <li className="contactList__item" key={id}>
           <p>
             {name}: {number}
           </p>
           <button
-            className={styles.delBtn}
+            className="delBtn"
             type="button"
             onClick={() => onDeleteContact(id)}
           >
@@ -19,7 +19,7 @@ function ContactList({ contacts, onDeleteContact }) {
           </button>
         </li>
       ))}
-    </ul>
+    </ContactUl>
   );
 }
 

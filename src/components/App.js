@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styles from "./App.module.css";
+import Container from "./AppStyled";
 import shortid from "shortid";
 import ContactForm from "./ContactForm/ContactForm";
 import ContactList from "./ContactList/ContactList";
@@ -66,11 +66,11 @@ class App extends Component {
     const filteredContacts = this.getContacts();
 
     return (
-      <div className={styles.container}>
-        <h1 className={styles.h1Title}>Phonebook</h1>
+      <Container>
+        <h1 className="h1Title">Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
 
-        <h2 className={styles.h2Title}>Contacts</h2>
+        <h2 className="h2Title">Contacts</h2>
         {contacts.length > 1 && (
           <Filter value={filter} onChange={this.changeFilter} />
         )}
@@ -80,11 +80,9 @@ class App extends Component {
             onDeleteContact={this.delContact}
           />
         ) : (
-          <p className={styles.text}>
-            Your phonebook is empty. Please add contact.
-          </p>
+          <p className="text">Your phonebook is empty. Please add contact.</p>
         )}
-      </div>
+      </Container>
     );
   }
 }
